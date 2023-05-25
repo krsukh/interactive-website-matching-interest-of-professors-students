@@ -1,0 +1,242 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+              <div class="login_body flex-grow-1 py-3">
+<!--                <h4 class="mb-1 text-dark">Register as Student</h4>-->
+<!--                <p class="pb-2">Register here as student account now...</p>-->
+                <form method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+
+                  <div class="register_form">
+                    <fieldset id="field1">
+                      <legend class="step_title">Personal Infomation</legend>
+                      <div class="row">
+                        <div class="form-group col-md-6 mb-3">
+                          <label for="fname">First Name</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="first_name"
+                            value="{{request.user.first_name|title}}"
+                            id="fname"
+
+                          />
+                        </div>
+                        <div class="form-group col-md-6 mb-3">
+                          <label for="lname">Last Name</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="last_name"
+                            id="lname"
+                            value="{{request.user.last_name|title}}"
+
+                          />
+                        </div>
+                        <div class="form-group col-md-4 mb-3">
+                          <label for="phone">Phone Number</label>
+                          <input
+                            type="tel"
+                            class="form-control"
+                            name="phone_number"
+                            value="{{request.user.phone_number}}"
+                            id="phone"
+
+
+                          />
+                        </div>
+                        <div class="form-group col-md-4 mb-3">
+                          <label for="Email">Email</label>
+                          <input
+                            type="email"
+                            class="form-control"
+                            name="email"
+                            value="{{request.user.email}}"
+                            id="Email"
+                            readonly
+
+                          />
+                        </div>
+                        <div class="form-group col-md-4 mb-3">
+                          <label for="Username">Username</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="username"
+                            id="Username"
+                            value="{{request.user.username|title}}"
+                            readonly
+
+                          />
+                        </div>
+
+                        <div class="form-group col-md-6 mb-3">
+                          <label for="domesticCountry">Domestic Country</label>
+                         <input
+                            type="text"
+                            class="form-control"
+                            name="domestic_country"
+                            id="domesticcountry"
+                            value="{{request.user.domestic_country|title}}"
+                            readonly
+
+                          />
+                        </div>
+                        <div class="form-group col-md-6 mb-3">
+                          <label for="prefferedStudy"
+                            >Preffered Study Destination</label
+                          >
+                          {%for i in x%}
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="preferred_study_destination"
+                            id="prefferedStudy"
+                            value="{{i.preferred_study_destination}}"
+                            readonly
+                          />
+                          {%endfor%}
+                        </div>
+                      </div>
+
+                    <fieldset id="field3">
+                      <legend class="step_title">Other Infomation</legend>
+                      <div class="row">
+
+                        <div class="form-group col-md-12 mb-3">
+                          <label for="RecentResearch"
+                            >Recent Research / Project description</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="recent_research"
+                            id="recentresearch"
+                            value="{{research.recent_research}}"
+                          />
+
+                        </div>
+
+                        <div class="form-group col-md-12 mb-3">
+                          <label for="ResearchAbstract"
+                            >Research Abstract</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="research_abstract"
+                            id="ResearchAbstract"
+                            value="{{research.research_abstract}}"
+
+                          >
+
+                        </div>
+<!--                        <div class="form-group col-md-6 mb-3">-->
+<!--                          <label for="">-->
+<!--                            Scholarship needed (limited scholarship)</label>-->
+
+<!--                          <div>-->
+<!--                            {% if scholarship_value.gpa == True %}-->
+<!--                            <div class="form-check form-check-inline">-->
+<!--                              <input-->
+<!--                                class="form-check-input"-->
+<!--                                type="radio"-->
+<!--                                name="scholarship_needed"-->
+<!--                                id="yes"-->
+<!--                                value="True" checked/>-->
+
+<!--                              <label class="form-check-label" for="yes"-->
+<!--                                >Yes</label>-->
+
+<!--                            </div>-->
+
+<!--                             {% elif scholarship_value.gpa == False %}-->
+
+<!--                            <div class="form-check form-check-inline">-->
+<!--                              <input-->
+<!--                                class="form-check-input"-->
+<!--                                type="radio"-->
+<!--                                name="scholarship_needed"-->
+<!--                                id="no"-->
+<!--                                value="False" checked/>-->
+
+<!--                              <label class="form-check-label" for="no"-->
+<!--                                >No</label>-->
+<!--                            </div>-->
+<!--                            {%endif%}-->
+<!--                          </div>-->
+<!--                        </div>-->
+                      </div>
+
+
+<!--                      <div class="form-group mb-3">-->
+<!--                        <button-->
+<!--                          type="button"-->
+<!--                          class="btn me-2 btn-outline-secondary btn-block px-4 text-uppercase"-->
+<!--                          id="next_Other"-->
+<!--                          onclick="BackToEdu()">-->
+<!--                          <i class="fa fa-arrow-left"></i> Back-->
+<!--                        </button>-->
+
+                        <button
+                          type="submit"
+                          class="btn btn-primary btn-block px-4 text-uppercase">
+                          update
+                        </button>
+<!--                      </div>-->
+                    </fieldset>
+                    </fieldset>
+                  </div>
+                </form>
+              </div>
+
+
+{% if updated %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-body">
+            <h5 class="text-success">Profile updated sucessfully ,press ok to continue.</h5>
+        </div>
+        <div class="modal-footer">
+
+             <a href="/dashboard/student-profile" class="btn btn-sm btn-primary">Continue</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+            </div>
+        </div>
+    </div>
+{%endif%}
+
+
+
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+
+<script>
+
+     var myModal = new bootstrap.Modal(document.getElementById("exampleModal"), {});
+     document.onreadystatechange = function () {
+     myModal.show();
+
+
+    };
+
+
+</script>
+
+
+{% endblock %}
+{% block js %}
+{% endblock %}

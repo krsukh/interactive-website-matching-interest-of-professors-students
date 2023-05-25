@@ -1,0 +1,73 @@
+{% load static %}
+
+<div class="leftbar d-flex position-fixed">
+            <aside class="d-flex flex-column flex-grow-1">
+                <div class="logobar">
+                    <a href="#">
+                        <img src="{%static 'images/logo.png'%}" alt="Planet of student" class="img-fluid h-40" />
+                    </a>
+                </div>
+                <div class="menu_list flex-grow-1">
+                    <h5 class="menutitle">MAIN NAVIGATION</h5>
+                    <ul class="list-unstyled">
+                        <li class="active">
+                            <a href="/dashboard">
+                                <span class="menu-icon"><i class="fa fa-house-user"></i></span>
+                                <span class="menu_text">Dashboard</span>
+                            </a>
+                        </li>
+
+                        {% if request.user.is_student %}
+
+                            <li>
+                            <a href="/dashboard/student-profile/">
+                                <span class="menu-icon"><i class="fa fa-user-circle"></i></span>
+                                <span class="menu_text">My Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/student/education-history">
+                                <span class="menu-icon"><i class="fa-solid fa-user-tie"></i></span>
+                                <span class="menu_text">Education History</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/student/search-professor-result">
+                                <span class="menu-icon"><i class="fa-solid fa-user-tie"></i></span>
+                                <span class="menu_text">Search Professor</span>
+                            </a>
+                        </li>
+
+                        {% endif %}
+                         {% if request.user.is_professor %}
+                        <li>
+                            <a href="/dashboard/professor-profile/">
+                                <span class="menu-icon"><i class="fa fa-user-circle"></i></span>
+                                <span class="menu_text">My Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/professor/professor-education-history">
+                                <span class="menu-icon"><i class="fa fa-user-circle"></i></span>
+                                <span class="menu_text">Education History</span>
+                            </a>
+                        </li>
+<!--                        <li>-->
+<!--                            <a href="#">-->
+<!--                                <span class="menu-icon"><i class="fa-solid fa-graduation-cap"></i></span>-->
+<!--                                <span class="menu_text">Student</span>-->
+<!--                            </a>-->
+<!--                        </li>-->
+
+                        {% endif %}
+
+                        <li>
+                            <a href="/logout">
+                                <span class="menu-icon"><i class="fa fa-sign-out-alt"></i></span>
+                                <span class="menu_text">Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>

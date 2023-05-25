@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+ <section class="py-3">
+                    <div class="container">
+                        <h3 class="fw-normal cusTitle border-bottom pb-2"><i class="fa-solid fa-user-tie"></i> Search as <b>Student</b></h3>
+                    </div>
+                </section>
+                <section class="search_sec pt-2 pb-4">
+                    <div class="container">
+                        <div class="search_sec_inner">
+                            <form action="">
+                                <div class="row">
+                                    <div class="form-group col-md-6 mb-3">
+                                        <label for="Interested">Research Interested Area <span class="text-danger">*</span></label>
+                                        <select name="" id="Interested" class="form-control">
+                                            <option value="">Data Mining</option>
+                                            <option value="">Data Mining</option>
+                                            <option value="">Data Mining</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6 mb-2">
+                                        <label for="Password">Password</label>
+                                        <input type="password" class="form-control" name="" id="Password" placeholder="Enter Password" />
+                                    </div>
+                                    <div class="form-group col-md-6 mb-3">
+                                        <label for="">Scholarship needed (limited scholarship)</label>
+                                        <div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="scholarship" id="yes" value="True">
+                                                <label class="form-check-label" for="yes">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="scholarship" id="no" value="False">
+                                                <label class="form-check-label" for="no">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6 mb-3">
+                                        <label for="">Scholarship needed (limited scholarship)</label>
+                                        <div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="scholarship" id="yes" value="True">
+                                                <label class="form-check-label" for="yes">Yes</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="scholarship" id="no" value="False>
+                                                <label class="form-check-label" for="no">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12 mb-3">
+                                        <label for="ResearchAbstract">Research Abstract</label>
+                                        <textarea rows="4" class="form-control" name="" id="ResearchAbstract" placeholder="Research Abstract"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-block cusbtn px-4 text-uppercase">Search Student</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+{% endblock %}
+{% block js %}
+{% endblock %}

@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <div class="login_body flex-grow-1 py-3">
+<!--                <h4 class="mb-1 text-dark">Register as Student</h4>-->
+<!--                <p class="pb-2">Register here as student account now...</p>-->
+                <form method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+
+                  <div class="register_form">
+                    <fieldset id="field2">
+                      <legend class="step_title">Educational History</legend>
+                      <div class="row">
+                        <!--                                            <div class="form-group col-md-6 mb-3">-->
+                        <!--                                                <label for="countryEdu">Country of education</label>-->
+                        <!--                                                <select class="form-control" name="country_of_education" id="countryEdu">-->
+                        <!--                                                    <option value="">Select Country of education</option>-->
+                        <!--                                                    <option value="">A</option>-->
+                        <!--                                                    <option value="">B</option>-->
+                        <!--                                                    <option value="">C</option>-->
+                        <!--                                                </select>-->
+                        <!--                                            </div>-->
+                        <div class="form-group col-md-6 mb-3">
+                          <label for="University">University</label>
+                          <select
+                            class="form-control"
+                            name="university"
+                            id="University"
+                          >
+                            <option value="{{data.university}}">{{data.university}}</option>
+                            <option value="University of Oxford">University of Oxford</option>
+                                                    <option value="university of chicago">University of Chicago</option>
+                                                    <option value="university of toronto">University of Toronto</option>
+                                                    <option value="ruprecht karls universitat heidelberg">Ruprecht-Karls-Universitat Heidelberg</option>
+                                                    <option value="monash university">Monash University</option>
+                                                    <option value="university of delhi">University of Delhi</option>
+                                                    <option value="lovely professional university">Lovely Professional University</option>
+                          </select>
+                        </div>
+                        <div class="form-group col-md-6 mb-3">
+                          <label for="Department">Department</label>
+                          <input
+                              type="text"
+                              class="form-control"
+                              name="department"
+                              id="Department"
+                              value="{{data.department|title}}"
+                              readonly
+                            />
+                        </div>
+                        <div class="form-group col-md-6 mb-3">
+                          <label for="Specialization">Specialization</label>
+                          <select
+                            class="form-control"
+                            name="specialization"
+                            id="Specialization"
+                          >
+                            <option value="{{data.specialization}}">{{data.specialization}}</option>
+                            <option value="analytical chemistry">Analytical Chemistry</option>
+                            <option value="organic chemistry">Organic Chemistry</option>
+                            <option value="biotechnology">Biotechnology</option>
+                            <option value="materials and textiles">Materials & Textiles</option>
+                            <option value="technical support">Technical Support</option>
+                            <option value="technical communication and science writing">Technical Communication/Science Writing</option>
+                            <option value="human resources">Human Resource</option>
+                          </select>
+                        </div>
+                        <div class="form-group col-md-6 mb-3">
+                          <label for="researchlab">Research Lab</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="research_lab"
+                            id="researchlab"
+                            value="{{data.research_lab}}"
+
+                          />
+                        </div>
+                        <div class="form-group col-md-6 mb-3">
+                          <label for="startdate">Start Date of Course</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            name="course_start_date"
+                            id="startdate"
+                            value="{{data.course_start_date}}"
+                            readonly
+                          />
+                        </div>
+
+                    </div>
+                       <button
+                          type="submit"
+                          class="btn btn-primary btn-block px-4 text-uppercase">
+                          Update
+                        </button>
+
+                    </fieldset>
+                  </div>
+                </form>
+  </div>
+
+{% if updated %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-body">
+            <h5 class="text-success">Education updated sucessfully ,press ok to continue.</h5>
+        </div>
+        <div class="modal-footer">
+
+             <a href="/dashboard/student-profile" class="btn btn-sm btn-primary">Continue</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+            </div>
+        </div>
+    </div>
+{%endif%}
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+
+
+<script>
+
+     var myModal = new bootstrap.Modal(document.getElementById("exampleModal"), {});
+     document.onreadystatechange = function () {
+     myModal.show();
+
+
+    };
+
+
+</script>
+
+{% endblock %}
+{% block js %}
+{% endblock %}

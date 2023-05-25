@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if professor_tab %}
+
+ <section class="py-3">
+                    <div class="wlcm_title">
+                        <h1 class="fw-normal">Welcome <b>{{request.user}}</b></h1>
+                    </div>
+                </section>
+                <section class="cuscard">
+                    <div class="container">
+                        <div class="row">
+<!--                            <div class="col-lg-4 col-md-6 my-3">-->
+<!--                                <a href="#" class="card_box shadow-sm p-5 h-100 card_primary">-->
+<!--                                    <span class="cus_icon"><i class="fa-solid fa-graduation-cap"></i></span>-->
+<!--                                    <h2>Search Student</h2>-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-4 col-md-6 my-3">-->
+<!--                                <a href="search-professor.html" class="card_box shadow-sm p-5 h-100 card_success">-->
+<!--                                    <span class="cus_icon"><i class="fa-solid fa-user-tie"></i></span>-->
+<!--                                    <h2>Search Professor</h2>-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-4 col-md-6 my-3">-->
+<!--                                <a href="#" class="card_box shadow-sm p-5 h-100 card_info">-->
+<!--                                    <span class="cus_icon"><i class="fa fa-user-circle"></i></span>-->
+<!--                                    <h2>View Profile</h2>-->
+<!--                                </a>-->
+<!--                            </div>-->
+                        </div>
+                    </div>
+                </section>
+{%endif%}
+
+{% if student_tab %}
+
+ <section class="py-3">
+                    <div class="wlcm_title">
+                        <h1 class="fw-normal">Welcome <b>{{request.user}}</b></h1>
+                    </div>
+                </section>
+                <section class="cuscard">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 my-3">
+                                <a href="/student/search-professor-result" class="card_box shadow-sm p-5 h-100 card_primary">
+                                    <span class="cus_icon"><i class="fa-solid fa-graduation-cap"></i></span>
+                                    <h2>Search Professor</h2>
+                                </a>
+                            </div>
+<!--                            <div class="col-lg-4 col-md-6 my-3">-->
+<!--                                <a href="search-professor.html" class="card_box shadow-sm p-5 h-100 card_success">-->
+<!--                                    <span class="cus_icon"><i class="fa-solid fa-user-tie"></i></span>-->
+<!--                                    <h2>Search Professor</h2>-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                            <div class="col-lg-4 col-md-6 my-3">-->
+<!--                                <a href="#" class="card_box shadow-sm p-5 h-100 card_info">-->
+<!--                                    <span class="cus_icon"><i class="fa fa-user-circle"></i></span>-->
+<!--                                    <h2>View Profile</h2>-->
+<!--                                </a>-->
+<!--                            </div>-->
+                        </div>
+                    </div>
+                </section>
+{% endif %}
+{% endblock %}
+{% block js %}
+{% endblock %}

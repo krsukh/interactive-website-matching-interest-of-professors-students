@@ -1,0 +1,29 @@
+
+  {% load static %}
+   <header>
+                <nav class="navbar nav justify-space-between fixed-top shadow-sm navbar-expand-lg navbar-light ">
+                    <div class="container-fluid">
+                        <div class="left-head">
+                            <div class="menu-toogle d-flex align-items-center">
+                                <a href="javascript:void(0);">
+                                    <div class="hamburger "><span class="line"></span><span class="line"></span><span class="line"></span></div>
+                                </a>
+                                <a href="#" class="ms-3 logo_right">
+                                    <img src="{%static 'images/logo.png'%}" alt="Planet of student" class="img-fluid" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="menu-right">
+                            <div class="dropdown login_user">
+                                <div class="dropdown-top" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="{%static 'images/user.png'%}" alt="user_img" class="img-fluid">
+                                </div>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+<!--                                    <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a></li>-->
+                                    <li><a class="dropdown-item" href="/logout"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </header>

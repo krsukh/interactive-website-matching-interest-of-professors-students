@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="py-3">
+                    <div class="container">
+                        <h3 class="fw-normal cusTitle border-bottom pb-2"><i class="fa-solid fa-user-tie"></i> Result of <b>Professor</b></h3>
+                    </div>
+                </section>
+                <section class="result_sec pb-4">
+                    <div class="container-fluid">
+                        <div class="result_sec_inner">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">Sr.No.</th>
+                                            <th>First Name</th>
+                                            <th>Home Page Link</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for single_item in highest_nlp_data %}
+                                          <tr>
+                                                <td class="text-center">{{forloop.counter}}</td>
+                                                <td> {{single_item.username|title}}</td>
+                                                <td><a href ="{{single_item.home_link}}" class="text-dark text-decoration-none">{{single_item.home_link}}</a>
+                                                </td>
+
+                                            </tr>
+                                      {%endfor%}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.jquery.min.js"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+
+
+
+{% endblock %}
+{% block js %}
+{% endblock %}
